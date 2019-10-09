@@ -1,10 +1,8 @@
-package com.example.dagger2tutorial;
+package com.example.dagger2tutorial.car;
 
 import android.util.Log;
 
 import javax.inject.Inject;
-
-import dagger.Provides;
 
 public class Car {
     private static final String TAG = "Car";
@@ -25,6 +23,7 @@ public class Car {
     }
 
     public void drive() {
+        engine.start();
         Log.d(TAG, "driving...");
     }
 }
