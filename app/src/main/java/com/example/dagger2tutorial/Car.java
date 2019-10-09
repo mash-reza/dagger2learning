@@ -4,19 +4,19 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
+import dagger.Provides;
+
 public class Car {
     private static final String TAG = "Car";
 
-    @Inject
-    Wheels wheels;
-    @Inject
-    Engine engine;
-    @Inject
-    Remote remote;
+    private Engine engine;
+    private Wheels wheels;
+
 
     @Inject
-    public Car() {
-        Log.d(TAG, "car constructor call");
+    public Car(Engine engine, Wheels wheels) {
+        this.engine = engine;
+        this.wheels = wheels;
     }
 
     @Inject
