@@ -7,16 +7,24 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
-    private Wheels wheels;
-    private Engine engine;
+    @Inject
+    Wheels wheels;
+    @Inject
+    Engine engine;
+    @Inject
+    Remote remote;
 
     @Inject
-    public Car(Wheels wheels,Engine engine) {
-        this.wheels = wheels;
-        this.engine = engine;
+    public Car() {
+        Log.d(TAG, "car constructor call");
     }
 
-    public void drive(){
+    @Inject
+    public void enableRemote(Remote remote) {
+        remote.setListener(this);
+    }
+
+    public void drive() {
         Log.d(TAG, "driving...");
     }
 }
